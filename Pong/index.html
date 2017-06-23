@@ -1,0 +1,34 @@
+
+
+<html>
+<head>
+<title> Advanced Soccer </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var menu_text = new sjs.Text("MENU",28,"blue");
+
+/* menu_text code is here */
+
+var startBtn = new sjs.Button("Start", function(){
+window.location = "pong.html";
+});
+
+startBtn.center();
+
+/* startBtn code is here */
+
+var info_text = new sjs.Text("Created By Kallin Bosch",20,"black");
+
+info_text.bottom().centerH();
+
+} //end start
+</script>
+</head>
+<body onload="start()">
+<h1> Menu </h1>
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
+
