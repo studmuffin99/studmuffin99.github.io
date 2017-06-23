@@ -73,30 +73,19 @@ var score = 0;
 var score_txt = new sjs.Text("Score: 0", 21, "orange");
 
 sjs.onHit("player","enemy", function(x,y){ 
-if(x.getWidth() > y.getWidth() && 
-x.getHeight() > y.getHeight()) {
-score = score + 1;
-score_txt.setText("Score: "+score);
-x.grow(10,5);
-} else {
-x.destroy(); 
-}
-y.destroy(); 
-});
-
-sjs.onHit("player","enemy", function(x,y){ 
-if(x.getWidth() > y.getWidth() && 
-x.getHeight() > y.getHeight()) {
-score = score + 1;
-score_txt.setText("Score: "+score);
-x.grow(10,5);
-if(score >= 20){
-sjs.destroyAll("enemy");
-window.location = "win.html";
-} else {
-x.destroy(); 
-}
-y.destroy(); 
+	if(x.getWidth() > y.getWidth() && 
+		x.getHeight() > y.getHeight()) {
+		score = score + 1;
+		score_txt.setText("Score: "+score);
+		x.grow(10,5);
+		if(score >= 20) {
+			sjs.destroyAll("enemy");
+			window.location = "win.html";
+		} else {
+			x.destroy(); 
+		}
+		y.destroy();
+    }
 });
 
 player.setImage("Images/fish_right.png");
@@ -114,7 +103,7 @@ player.pushRight();
 });
 sjs.keyDown(LEFT_KEY, function(){
 	player.setImage("Images/fish_left.png");
-player.pushLeft();
+    player.pushLeft();
 });
 sjs.keyDown(DOWN_KEY, function(){
   player.pushDown();
